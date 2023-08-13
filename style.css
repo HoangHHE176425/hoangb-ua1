@@ -1,0 +1,518 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    background: #221b5e;
+    overflow: hidden;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+}
+
+.absolute {
+    position: absolute;
+    z-index: 1;
+}
+
+#game-container {
+    background-color: black;
+    position: relative;
+    overflow: hidden
+}
+
+canvas {
+    display: block;
+    position: relative;
+}
+
+.icon {
+    height: 100px;
+}
+
+.hide {
+    display:none !important
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
+    width:200px;
+    background-color: #9FC805;
+    border-radius: 10px;
+    height: 45px;
+    font-size: 20px;
+    box-shadow: 0px 4px #718E04;
+    text-shadow: 0px 2px 2px #718E04;
+    position: relative;
+    bottom: 0;
+    transition: .1s;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.button:hover {
+    bottom: -4px;
+    box-shadow: none;
+}
+
+/*Opening Screen*/
+#opening-screen {
+    background: url('./assets/ui-images/menu.png');
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    background-size: cover;
+    background-color: #221b5e;
+}
+
+#opening-header {
+    color: white;
+    font-size: 128px;
+    font-family: 'Fredoka One', cursive;
+    margin-bottom: 120px;
+    animation: breathing 5s ease-in-out infinite;
+    text-shadow: 1px 1px #3798C5,
+    2px 2px #3798C5,
+    3px 3px #3798C5,
+    4px 4px #3798C5,
+    6px 6px #4A43AE,
+    6px 6px #4A43AE,
+    7px 7px #4A43AE,
+    8px 8px #4A43AE,
+    0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#opening-sharkie {
+    height: 250px;
+    transform: translateX(-230px) translateY(-170px) rotate(30deg);
+    z-index: -1;
+}
+
+#play-button {
+    height: 60px;
+    width: 250px;
+    font-size: 28px;
+    box-shadow: 0px 7px #718E04;
+}
+
+#play-button:hover {
+    box-shadow: none;
+    bottom: -7px
+}
+
+@keyframes breathing {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(0.96);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+}
+
+/*Tutorial Dialogs*/
+#tutorial-container {
+    height: 100%;
+    width: 100%;
+}
+
+.tutorial-dialog-container {
+    height: 400px;
+    width: 600px;
+    background: #4335bd;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    justify-content: space-between;
+}
+
+#quest-dialog-container {
+    justify-content: space-between;
+    font-size: 18px;
+    text-align: center;
+}
+
+#quest-dialog-container span {
+    margin: 0 100px;
+}
+
+#quest-dialog-container img {
+    height: 180px;
+    background: #392da7;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+    padding: 10px 0;
+}
+
+/*Controls*/
+.controls-key {
+    background: #392da7;
+    border-radius: 20px;
+    padding: 15px;
+    width: 20px;
+    font-weight: bold;
+    border: 3px solid #574bc7; 
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+td {
+    width: 50%;
+    padding-bottom: 10px;
+}
+
+#controls-move-container {
+    margin: 0 auto;
+    width: 150px;
+}
+
+#controls-jump-container {
+    margin: 0 auto;
+    width: 250px;
+}
+
+#controls-space{
+    width: 120px;
+}
+
+.controls-label {
+    font-size: 18px;
+}
+
+#controls-ok-button{
+    margin: 0 auto;
+}
+
+/*Ingame Top right*/
+#ingame-top-right {
+    display: flex;
+    align-items: flex-end;
+    right: 0;
+    padding: 12px;
+}
+
+/*Ingame Menu*/
+#ingame-menu {
+    right: 0;
+    margin-bottom: 10px;
+}
+
+.menu-button {
+    height: 32px;
+    width: 32px;
+    background: rgb(54, 162, 250);
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 15px;
+    transition: 100ms;
+}
+
+.menu-button:hover {
+    transform: scale(1.1);
+}
+
+.menu-button img {
+    height: 22px;
+}
+
+/*Coin and Poison Containers**/
+.amount-container {
+    background: rgba(0, 0, 0, 0.2);
+    top: 3vh;
+    right: 45px;
+    height: 39px;
+    width: 130px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: 600;
+    color: white;
+    font-size: 22px;
+    padding-right: 43px;
+    margin: 20px 0;
+    margin-right: 10px;
+}
+
+.amount-container img {
+    right: -10px;
+    height: 80px;
+}
+
+/*Poison Container*/
+.unlocked-poison {
+    background: #41e041a2;
+    color: white;
+}
+
+/*Health Bars*/
+.health-bar-container {
+    background: linear-gradient(white, #AAE8FF);
+    height: 32px;
+    border-radius: 40px;
+    border: white solid 3px;
+}
+
+.health-bar {
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    background: linear-gradient(#b5ff2b, #82c900);
+    border: white solid 3px;
+    top: -3px;
+    position: absolute;
+    transition: 300ms;
+}
+
+/*Character Health Bar*/
+#health-bar-container {
+    top: 23px;
+    left: 45px;
+    width: 300px;
+}
+
+#health-icon {
+    top: -45px;
+    left: -50px;
+}
+
+/*Final Boss Health Bar*/
+#final-boss-health-bar-container {
+    height: 23px;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px
+}
+
+#final-boss-health-icon {
+    top: -32px;
+    left: -53px;
+    border: 3px white solid;
+    border-radius: 50%;
+    height: 70px;
+}
+
+/*Win Container*/
+#win-container {
+    height: 100%;
+    width: 100%;
+    background: #1616669a;
+}
+
+#win-label {
+    color: white;
+    font-size: 92px;
+    font-family: 'Fredoka One';
+    white-space: nowrap;
+}
+
+#win-sharkie {
+    height: 250px;
+    transform: translateX(-270px) translateY(50px);
+}
+
+#win-collected-coins-container {
+    margin: 50px;
+    padding: 0 15px 0 20px;
+    background: rgba(0, 0, 0, 0.205);
+    border-radius: 30px;
+}
+
+#win-collected-coins-container img {
+    height: 50px;
+}
+
+/*Dead Container*/
+#dead-container {
+    height: 100%;
+    width: 100%;
+    background: #1616669a;
+}
+
+#dead-label {
+    color: white;
+    font-size: 92px;
+    font-family: 'Fredoka One';
+    margin-bottom: 150px;
+    white-space: nowrap;
+}
+
+#dead-sharkie {
+    height: 130px;
+    margin-top: 60px;
+}
+
+
+/*Responsive Canvas*/
+@media only screen and (max-width: 1920px) {
+    canvas {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-height: 1080px) {
+    canvas {
+        max-height: 100vh;
+    }
+}
+
+/*Responsive UI*/
+@media (max-width: 1200px) {
+    #health-bar-container {
+        transform: scale(0.8);
+        left: 10px;
+    }
+
+    #final-boss-health-bar-container {
+        transform: scale(0.85);
+        bottom: 20px;
+    }
+
+    #ingame-top-right {
+        transform: scale(0.8);
+        top: -20px;
+        right: -20px;
+    }
+
+    #opening-content {
+        transform: scale(0.8);
+    }
+}
+
+@media(max-width: 900px) {
+    #health-bar-container {
+        transform: scale(0.6);
+        left: -30px;
+        top: 10px;
+    }
+
+    #final-boss-health-bar-container {
+        transform: scale(0.65);
+        bottom: 15px;
+    }
+
+    #ingame-top-right {
+        transform: scale(0.6);
+        top: -40px;
+        right: -40px;
+    }
+
+    #opening-content {
+        transform: scale(0.6);
+    }
+
+    #opening-sharkie {
+        height: 200px;
+        transform: translateX(-230px) translateY(-150px) rotate(30deg);
+    }
+
+    #tutorial-content {
+        transform: scale(0.7);
+    }
+
+    .result-content {
+        transform: scale(0.63); 
+    }
+}
+
+@media(max-width: 550px) {
+    #health-bar-container {
+        transform: scale(0.4);
+        left: -70px;
+        top: 5px;
+    }
+
+    #final-boss-health-bar-container {
+        transform: scale(0.45);
+        bottom: 3px;
+    }
+
+    #ingame-top-right {
+        transform: scale(0.5);
+        top: -50px;
+        right: -50px;
+    }
+
+    #opening-content {
+        transform: scale(0.5);
+    }
+
+    #tutorial-content {
+        transform: scale(0.5);
+    }
+
+    .result-content {
+        transform: scale(0.5); 
+    }
+
+    #dead-label {
+        margin-bottom: 100px;
+    }
+}
+
+@media(max-width: 450px) {
+    #health-bar-container {
+        transform: scale(0.3);
+        left: -90px;
+        top: -2px;
+    }
+
+    #final-boss-health-bar-container {
+        transform: scale(0.35);
+        bottom: 2px;
+    }
+
+    #ingame-top-right {
+        transform: scale(0.4);
+        top: -60px;
+        right: -60px;
+    }
+
+    #opening-content {
+        transform: scale(0.4);
+    }
+
+    #tutorial-content {
+        transform: scale(0.4);
+    }
+
+    .result-content {
+        transform: scale(0.4); 
+    }
+
+    #dead-label {
+        margin-bottom: 50px;
+    }
+}
+
+
